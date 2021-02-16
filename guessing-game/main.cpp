@@ -8,26 +8,22 @@ int main(int argc, char const *argv[])
     // generate a random number between 1-100
     number = rand() % 100 + 1;
 
-
-    std::cout << number; 
-
-
     // if number is to high or low show message and continue game. if correct stop the game.
     do
     {
-        scanf("%i", guess);
+        scanf("%i", &guess);
         if (guess < number)
         {
-            puts('Numbers to low');
+            std::cout << "Numbers to low" << '\n';
         }
-        else
+        else if (guess > number)
         {
-            puts('Numbers to high');
+            std::cout << "Numbers to high" << '\n';
         }
         
     } while (number != guess);
-    
-    puts('You guessed it');
+
+    std::cout << "You guessed it";
 
     return 0;
 }
