@@ -14,11 +14,11 @@ int main(int argc, char const *argv[])
         scanf("%i", &guess);
         if (guess < number)
         {
-            std::cout << "Numbers to low" << '\n';
+            std::cout << "Numbers to lo" << '\n';
         }
         else if (guess > number)
         {
-            std::cout << "Numbers to high" << '\n';
+            std::cout << "Numbers to hi" << '\n';
         }
         
     } while (number != guess);
