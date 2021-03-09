@@ -31,3 +31,18 @@ Use explicit namespace prefixes to access identifiers defined in a namespace.
 Header files should generally not contain function and variable definitions, so as not to violate the one definition rule. An exception is made for symbolic constants
 
 When writing a source file, include the corresponding header (If one exists), even if you don’t need it yet.
+
+# Integers, floats and doubles
+
+Now that fixed-width integers have been added to C++, the best practice for integers in C++ is as follows:
+
+int should be preferred when the size of the integer doesn’t matter (e.g. the number will always fit within the range of a 2 byte signed integer). For example, if you’re asking the user to enter their age, or counting from 1 to 10, it doesn’t matter whether int is 16 or 32 bits (the numbers will fit either way). This will cover the vast majority of the cases you’re likely to run across.
+If you need a variable guaranteed to be a particular size and want to favor performance, use std::int_fast#_t.
+If you need a variable guaranteed to be a particular size and want to favor memory conservation over performance, use std::int_least#_t. This is used most often when allocating lots of variables.
+
+Avoid the following if possible:
+Unsigned types, unless you have a compelling reason.
+The 8-bit fixed-width integer types.
+Any compiler-specific fixed-width integers -- for example, Visual Studio defines __int8, __int16, etc…
+
+Favor double over float unless space is at a premium, as the lack of precision in a float will often lead to inaccuracies.
