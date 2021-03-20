@@ -9,9 +9,12 @@
 // Acts as forward decleration so no reason to do it later.
 #include "multiplyNumbers.h"
 
+
 // The identifier is traditionally typed in all capital letters, using underscores to represent spaces.
-#define PI 3.14
 #define AREA_CIRCLE(radius) (PI * (pow(radius, 2)))
+
+// Might be better to make a header file with const variables
+#include "constants.h"
 
 // void means the function does not return a value to the caller
 void returnNothing()
@@ -56,7 +59,7 @@ int main()
     std::cout << "Hello world!" << '\n'; // when we say cout, we mean the cout defined in the std namespace
 
     std::cout << "PI value: "
-              << PI
+              << constants::PI
               << '\n';
 
     returnNothing();
@@ -66,6 +69,20 @@ int main()
 
     printDouble(getValueFromUser());
 
+    // A type cast creates a value of one type from a value of another type.
+    // static_cast<new_type>(expression)
+    char ch ='a';
+    std::cout << ch << '\n';
+    std::cout << static_cast<int>(ch) << '\n';
+
+    std::cout << "Enter a radius: ";
+    int radius;
+    std::cin >> radius;
+
+    // Use the scope resolution operator (::) to access your constants in .cpp files
+    double circumference = 2.0 * radius * constants::PI;
+    std::cout << "The circumference is: " << circumference << '\n';
+
     return 0;
 }
 
@@ -73,3 +90,4 @@ int subtractNumbers(int x, int y) // even though the body of subtractNumbers() i
 {
     return x - y;
 }
+

@@ -46,3 +46,14 @@ The 8-bit fixed-width integer types.
 Any compiler-specific fixed-width integers -- for example, Visual Studio defines __int8, __int16, etc…
 
 Favor double over float unless space is at a premium, as the lack of precision in a float will often lead to inaccuracies.
+
+# Chars and strings
+Always put stand-alone chars in single quotes (e.g. ‘t’ or ‘\n’, not “t” or “\n”). This helps the compiler optimize more effectively.
+
+If reading strings with std::cin and operator<<, it’s a good idea to remove the extraneous newline using std::cin.ignore().
+
+# Using symbolic constants throughout a multi-file program
+1) Create a header file to hold these constants
+2) Inside this header file, declare a namespace
+3) Add all your constants inside the namespace
+4) #include the header file wherever you need it
