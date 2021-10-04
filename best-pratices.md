@@ -50,10 +50,19 @@ Favor double over float unless space is at a premium, as the lack of precision i
 # Chars and strings
 Always put stand-alone chars in single quotes (e.g. ‘t’ or ‘\n’, not “t” or “\n”). This helps the compiler optimize more effectively.
 
-If reading strings with std::cin and operator<<, it’s a good idea to remove the extraneous newline using std::cin.ignore().
+If reading strings with std::cin and operator <<, it’s a good idea to remove the extraneous newline using std::cin.ignore().
 
 # Using symbolic constants throughout a multi-file program
 1) Create a header file to hold these constants
 2) Inside this header file, declare a namespace
 3) Add all your constants inside the namespace
 4) #include the header file wherever you need it
+
+# Increment and decrement
+Strongly favor the prefix version of the increment and decrement operators (++x), as they are generally more performant, and you’re less likely to run into strange issues with them.
+
+# Side effects
+A function or expression is said to have a side effect if it does anything that persists beyond the life of the function or expression itself.
+
+Common examples of side effects include changing the value of objects, doing input or output, or updating a graphical user interface (e.g. enabling or disabling a button).
+Don’t use a variable that has a side effect applied to it more than once in a given statement. If you do, the result may be undefined.
